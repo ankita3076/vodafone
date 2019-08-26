@@ -1,0 +1,100 @@
+/* You can add global styles to this file, and also import other style files */
+html, body{
+    height: 100%;
+    overflow: hidden;
+}
+@media (min-height: 600px) and (max-height: 800px) { 
+    body{
+        overflow: auto;
+    }
+}
+
+@media (max-height: 600px) { 
+    body{
+        overflow: auto;
+    }
+}
+
+.error-list{
+    li{
+        list-style: none;
+        color: red;
+        padding: 0 .75rem;
+        font-size: 12px;
+    }
+}
+
+input.ng-invalid.ng-touched{
+    border-bottom: 1px solid #F44336!important;
+    box-shadow: 0 1px 0 0 #F44336!important;
+}
+
+$ipadPortrait: 768px;
+$iPadLandscape: 1024px;
+
+@function getBreakpoint($bp) {
+$breakpoints: (
+  "xs": "screen and (max-width: 599px)",
+  "sm": "screen and (min-width: 600px) and (max-width: 959px)",
+  "md": "screen and (min-width: 960px) and (max-width: 1279px)",
+  "lg": "screen and (min-width: 1280px) and (max-width: 1919px)",
+  "xl": "screen and (min-width: 1920px) and (max-width: 5000px)",
+  "lt-sm": "screen and (max-width: 599px)",
+  "lt-md": "screen and (max-width: 959px)",
+  "lt-lg": "screen and (max-width: 1279px)",
+  "lt-xl": "screen and (max-width: 1919px)",
+  "gt-xs": "screen and (min-width: 600px)",
+  "gt-sm": "screen and (min-width: 960px)",
+  "gt-md": "screen and (min-width: 1280px)",
+  "gt-lg": "screen and (min-width: 1920px)"
+);
+  @return map-get($breakpoints, $bp);
+}
+
+// Use this to affect a specific break-point
+@mixin mediaBreakpoint($breakpoint) {
+  @media #{getBreakpoint($breakpoint)} {
+    @content;
+  }
+}
+
+
+@mixin media-ipad-portrait {
+  @media (min-width: #{$ipadPortrait}) and (max-width: #{$iPadLandscape -1px}) {
+    @content;
+  }
+}
+
+@mixin media-ipad-landscape {
+  @media (min-width: #{$iPadLandscape}){
+    @content;
+  }
+}
+
+// custome css
+nav {
+  background: #e60000 !important
+}
+body .ui-dataview .ui-dataview-header {
+  background: #E91A1A !important;
+  border: 0 !important;
+}
+body .ui-paginator {
+  background: #E91A1A !important;
+}
+body .ui-dataview .ui-dataview-footer {
+  padding: 0 !important;
+  border: 0 !important
+}
+body .ui-paginator .ui-paginator-pages .ui-paginator-page:not(.ui-state-active):hover{
+  color: #fff !important;
+}
+body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
+  background:  #fff !important;
+  color: #e60000 !important
+}
+@media only screen and (min-width: 993px) {
+  .container {
+      width: 90% !important;
+  }
+}
